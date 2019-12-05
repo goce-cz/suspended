@@ -1,19 +1,5 @@
-import { cachedFetcher } from '../common/cached-fetcher'
 import { getOfficer, listKills } from '../common/api'
-
-const preloadingCachedFetcher = fetcher => {
-  const result = cachedFetcher(fetcher)
-  result.preload = id => {
-    try {
-      result(id)
-    } catch (errorOrPromise) {
-      if (typeof errorOrPromise.then !== 'function') {
-        throw errorOrPromise
-      }
-    }
-  }
-  return result
-}
+import { preloadingCachedFetcher } from '../common/preloading-cached-fetcher'
 
 export const cachedGetOfficer = preloadingCachedFetcher(getOfficer)
 export const cachedListKills = preloadingCachedFetcher(listKills)
