@@ -36,7 +36,7 @@ export const OfficerDetails = ({ badgeId }) => {
         <td>{status}</td>
       </tr>
       <tr>
-        <th>kills</th>
+        <th>Kills</th>
         <td>
           {kills.map(({ villain }) => <div key={villain}>{villain}</div>)}
         </td>

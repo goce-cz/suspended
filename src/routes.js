@@ -10,6 +10,8 @@ import { OfficerManagement as Waterfall } from './d-waterfall/OfficerManagement'
 import { OfficerManagement as WaterfallSuspense } from './e-waterfall-suspense/OfficerManagement'
 import { OfficerManagement as FetchFirst } from './f-fetch-first/OfficerManagement'
 import { OfficerManagement as Timing } from './g-timing/OfficerManagement'
+import { OfficerManagement as Transition } from './h-transition/OfficerManagement'
+import { OfficerManagement as Resource } from './i-resource/OfficerManagement'
 
 export const routes = [
   {
@@ -46,6 +48,16 @@ export const routes = [
     name: 'timing',
     path: '/timing?:badgeId',
     component: Timing
+  },
+  {
+    name: 'transition',
+    path: '/transition?:badgeId',
+    component: Transition
+  },
+  {
+    name: 'resource',
+    path: '/resource?:badgeId',
+    component: Resource
   }
 ]
 
@@ -56,6 +68,7 @@ router.usePlugin(
 )
 
 router.subscribe(onRouteChangeFetchFirst)
-router.subscribe(onRouteChangeTiming)
+router.subscribe(onRouteChangeTiming('timing'))
+router.subscribe(onRouteChangeTiming('transition'))
 
 router.start()

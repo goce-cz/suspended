@@ -1,16 +1,13 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 
-import { KillList } from './KillList'
-import { cachedGetOfficer } from './officer-details-cache'
-
-
-export const OfficerDetails = ({ badgeId }) => {
+export const OfficerDetails = ({ resource }) => {
   const {
+    badgeId,
     rank,
     firstName,
     surname,
     status
-  } = cachedGetOfficer(badgeId)
+  } = resource.read()
 
   return (
     <table>
@@ -30,14 +27,6 @@ export const OfficerDetails = ({ badgeId }) => {
       <tr>
         <th>Status</th>
         <td>{status}</td>
-      </tr>
-      <tr>
-        <th>Kills</th>
-        <td>
-          <Suspense fallback='Loading kills...'>
-            <KillList badgeId={badgeId}/>
-          </Suspense>
-        </td>
       </tr>
       </tbody>
     </table>

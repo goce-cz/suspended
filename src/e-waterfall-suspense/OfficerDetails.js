@@ -34,7 +34,7 @@ export const OfficerDetails = ({ badgeId }) => {
         <td>{status}</td>
       </tr>
       <tr>
-        <th>kills</th>
+        <th>Kills</th>
         <td>
           <Suspense fallback='Loading kills...'>
             <KillList badgeId={badgeId}/>

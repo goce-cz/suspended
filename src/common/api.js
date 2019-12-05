@@ -16,6 +16,13 @@ export const db = {
       firstName: 'Roger',
       surname: 'Murtaugh',
       status: 'suspended'
+    },
+    {
+      badgeId: 129038,
+      rank: 'lieutenant ',
+      firstName: 'John',
+      surname: 'McClane',
+      status: 'suspended'
     }
   ],
   kills: [
@@ -30,6 +37,26 @@ export const db = {
     {
       badgeId: 487489,
       villain: 'Jack Travis'
+    },
+    {
+      badgeId: 129038,
+      villain: 'Hans Gruber'
+    },
+    {
+      badgeId: 129038,
+      villain: 'Karl Vreski'
+    },
+    {
+      badgeId: 129038,
+      villain: 'William Stuart'
+    },
+    {
+      badgeId: 129038,
+      villain: 'Major Grant'
+    },
+    {
+      badgeId: 129038,
+      villain: 'Simon Gruber'
     }
   ]
 }

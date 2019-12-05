@@ -5,8 +5,8 @@ export const cachedListOfficers = preloadingCachedFetcher(listOfficers)
 export const cachedGetOfficer = preloadingCachedFetcher(getOfficer)
 export const cachedListKills = preloadingCachedFetcher(listKills)
 
-export const onRouteChange = ({ route: { name, params } }) => {
-  if (name === 'timing') {
+export const onRouteChange = targetRoute => ({ route: { name, params } }) => {
+  if (name === targetRoute) {
     cachedListOfficers.preload()
     if (params.badgeId) {
       cachedGetOfficer.preload(Number(params.badgeId))
