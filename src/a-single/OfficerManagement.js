@@ -8,10 +8,8 @@ export const OfficerManagement = () => {
   const [badgeId, setBadgeId] = useBadgeId()
   return (
     <>
-      <Suspense fallback={<div>Loading list...</div>}>
+      <Suspense fallback={<div>Loading</div>}>
         <OfficerList onOfficerClick={setBadgeId}/>
-      </Suspense>
-      <Suspense fallback={<div>Loading details...</div>}>
         {
           badgeId &&
           <OfficerDetails badgeId={badgeId}/>

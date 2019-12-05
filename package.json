@@ -6,10 +6,11 @@
     "@material-ui/core": "^4.7.1",
     "lodash": "^4.17.15",
     "memoize-one": "^5.1.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "moment": "^2.24.0",
+    "react": "experimental",
+    "react-dom": "experimental",
     "react-router5": "^7.1.0",
-    "react-scripts": "3.2.0",
+    "react-scripts": "^3.3.0",
     "router5": "^7.0.2",
     "router5-plugin-browser": "^7.0.2"
   },
@@ -36,6 +37,6 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.149",
-    "@types/react": "^16.9.14"
+    "@types/react": "^16.9.15"
   }
 }

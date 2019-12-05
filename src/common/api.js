@@ -1,25 +1,53 @@
 import { delay } from './utils'
+import moment from 'moment'
 
-export const db = [
-  {
-    badgeId: 487489,
-    rank: 'lethal-weapon',
-    firstName: 'Martin',
-    surname: 'Riggs',
-    status: 'suspended'
-  },
-  {
-    badgeId: 798874,
-    rank: 'sergeant',
-    firstName: 'Roger',
-    surname: 'Murtaugh',
-    status: 'suspended'
-  }
-]
+export const db = {
+  officers: [
+    {
+      badgeId: 487489,
+      rank: 'lethal-weapon',
+      firstName: 'Martin',
+      surname: 'Riggs',
+      status: 'suspended'
+    },
+    {
+      badgeId: 798874,
+      rank: 'sergeant',
+      firstName: 'Roger',
+      surname: 'Murtaugh',
+      status: 'suspended'
+    }
+  ],
+  kills: [
+    {
+      badgeId: 798874,
+      villain: 'R.S.A. ambassador'
+    },
+    {
+      badgeId: 487489,
+      villain: 'mr. Joshua'
+    },
+    {
+      badgeId: 487489,
+      villain: 'Jack Travis'
+    }
+  ]
+}
+
+const logTiming = message => console.log(moment().format('mm:ss,SSS'), message)
+
+export const listOfficers = async () => {
+  logTiming('<listOfficers>')
+  await delay(3000)
+  logTiming('</listOfficers>')
+  return db.officers.map(({ badgeId, surname }) => ({ badgeId, surname }))
+}
 
 export const getOfficer = async (badgeId) => {
-  await delay(3000)
-  const officer = db.find(person => person.badgeId === badgeId)
+  logTiming('<getOfficer>')
+  await delay(2000)
+  logTiming('</getOfficer>')
+  const officer = db.officers.find(person => person.badgeId === badgeId)
   if (officer) {
     return officer
   } else {
@@ -27,10 +55,9 @@ export const getOfficer = async (badgeId) => {
   }
 }
 
-export const listOfficers = async () => {
-  await delay(2000)
-  return [
-    ...db.map(({ badgeId, surname }) => ({ badgeId, surname })),
-    { badgeId: 666, surname: 'Vigilante' }
-  ]
+export const listKills = async badgeId => {
+  logTiming('<listKills>')
+  await delay(1000)
+  logTiming('</listKills>')
+  return db.kills.filter(kill => kill.badgeId === badgeId)
 }

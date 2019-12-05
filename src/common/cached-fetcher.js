@@ -6,15 +6,23 @@ export const cachedFetcher = (fetcher) => {
       entry = {
         promise: fetcher(id)
       }
-      entry.promise.then(data => {
-        entry.promise = null
-        entry.data = data
-      })
+      entry.promise.then(
+        data => {
+          entry.promise = null
+          entry.data = data
+        },
+        error => {
+          entry.promise = null
+          entry.rejected = true
+          entry.error = error
+        }
+      )
       cache.set(id, entry)
     }
-
     if (entry.promise) {
       throw entry.promise
+    } else if (entry.rejected) {
+      throw entry.error
     } else {
       return entry.data
     }
