@@ -29,7 +29,6 @@ export const Root = () => {
     )
   }
 
-
   return (
     <RouterProvider router={router}>
       <Box

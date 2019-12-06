@@ -2,7 +2,7 @@ import createRouter from 'router5'
 import browserPlugin from 'router5-plugin-browser'
 
 import { onRouteChange as onRouteChangeFetchFirst } from './f-fetch-first/officer-details-cache'
-import { onRouteChange as onRouteChangeTiming} from './g-timing/officer-details-cache'
+import { onRouteChange as onRouteChangeTiming } from './g-timing/officer-details-cache'
 import { OfficerManagement as Single } from './a-single/OfficerManagement'
 import { OfficerManagement as Split } from './b-split/OfficerManagement'
 import { OfficerManagement as Error } from './c-error/OfficerManagement'

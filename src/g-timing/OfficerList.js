@@ -15,14 +15,14 @@ export const OfficerList = ({ onOfficerClick }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-      {
-        officers.map(({ badgeId, surname }) => (
-          <TableRow onClick={() => onOfficerClick(badgeId)} className='clickableRow' key={badgeId}>
-            <TableCell>{badgeId}</TableCell>
-            <TableCell>{surname}</TableCell>
-          </TableRow>
-        ))
-      }
+          {
+            officers.map(({ badgeId, surname }) => (
+              <TableRow onClick={() => onOfficerClick(badgeId)} className='clickableRow' key={badgeId}>
+                <TableCell>{badgeId}</TableCell>
+                <TableCell>{surname}</TableCell>
+              </TableRow>
+            ))
+          }
         </TableBody>
       </Table>
     </Paper>

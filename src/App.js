@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router5'
 import { router } from './routes'
 import { Root } from './Root'
 
-function App() {
+function App () {
   return (
     <RouterProvider router={router}>
       <Root/>
