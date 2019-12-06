@@ -62,7 +62,7 @@ export const db = {
   ]
 }
 
-const logTiming = message => console.log(moment().format('mm:ss,SSS'), message, new Error().stack)
+const logTiming = message => console.log(moment().format('mm:ss,SSS'), message)
 
 export const listOfficers = async () => {
   logTiming('<listOfficers>')
