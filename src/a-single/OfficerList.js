@@ -20,7 +20,7 @@ export const OfficerList = ({ onOfficerClick }) => {
         <TableBody>
           {
             officers.map(({ badgeId, surname }) => (
-              <TableRow onClick={() => onOfficerClick(badgeId)} className='clickableRow' key={badgeId}>
+              <TableRow hover onClick={() => onOfficerClick(badgeId)} key={badgeId}>
                 <TableCell>{badgeId}</TableCell>
                 <TableCell>{surname}</TableCell>
               </TableRow>

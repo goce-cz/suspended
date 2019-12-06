@@ -25,10 +25,6 @@
     cursor: pointer;
 }
 
-.clickableRow:hover {
-    background: aliceblue;
-}
-
 .throbber {
     position: absolute;
     left: 50vw;
@@ -43,4 +39,8 @@
 .MuiPaper-rounded {
     margin: 15px;
     padding: 15px;
+}
+
+th {
+  font-weight: bold !important;
 }

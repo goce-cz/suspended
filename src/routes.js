@@ -12,6 +12,7 @@ import { OfficerManagement as FetchFirst } from './f-fetch-first/OfficerManageme
 import { OfficerManagement as Timing } from './g-timing/OfficerManagement'
 import { OfficerManagement as Transition } from './h-transition/OfficerManagement'
 import { OfficerManagement as Resource } from './i-resource/OfficerManagement'
+import { clearCache } from './common/cached-fetcher'
 
 export const ROOT = 'root'
 
@@ -78,6 +79,11 @@ router.usePlugin(
   browserPlugin()
 )
 
+router.subscribe(({route,previousRoute}) => {
+  if(route.name !== previousRoute?.name) {
+    clearCache()
+  }
+})
 router.subscribe(onRouteChangeFetchFirst)
 router.subscribe(onRouteChangeTiming('timing'))
 router.subscribe(onRouteChangeTiming('transition'))

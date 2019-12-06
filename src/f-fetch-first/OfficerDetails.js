@@ -3,6 +3,7 @@ import { Paper, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
 import { KillList } from './KillList'
 import { cachedGetOfficer } from './officer-details-cache'
+import { InlineThrobber } from '../common/InlineThrobber'
 
 export const OfficerDetails = ({ badgeId }) => {
   const {
@@ -17,7 +18,7 @@ export const OfficerDetails = ({ badgeId }) => {
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell>Badge ID</TableCell>
+            <TableCell component="th">Badge ID</TableCell>
             <TableCell>{badgeId}</TableCell>
           </TableRow>
           <TableRow>
@@ -35,7 +36,7 @@ export const OfficerDetails = ({ badgeId }) => {
           <TableRow>
             <TableCell component="th">Kills</TableCell>
             <TableCell>
-              <Suspense fallback='Loading kills...'>
+              <Suspense fallback={<InlineThrobber>Loading kills...</InlineThrobber>}>
                 <KillList badgeId={badgeId}/>
               </Suspense>
             </TableCell>

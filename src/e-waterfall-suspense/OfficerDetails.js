@@ -4,6 +4,7 @@ import { Paper, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 import { cachedFetcher } from '../common/cached-fetcher'
 import { getOfficer } from '../common/api'
 import { KillList } from './KillList'
+import { InlineThrobber } from '../common/InlineThrobber'
 
 const cachedGetOfficer = cachedFetcher(getOfficer)
 
@@ -20,7 +21,7 @@ export const OfficerDetails = ({ badgeId }) => {
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell>Badge ID</TableCell>
+            <TableCell component="th">Badge ID</TableCell>
             <TableCell>{badgeId}</TableCell>
           </TableRow>
           <TableRow>
@@ -38,7 +39,7 @@ export const OfficerDetails = ({ badgeId }) => {
           <TableRow>
             <TableCell component="th">Kills</TableCell>
             <TableCell>
-              <Suspense fallback='Loading kills...'>
+              <Suspense fallback={<InlineThrobber>Loading kills...</InlineThrobber>}>
                 <KillList badgeId={badgeId}/>
               </Suspense>
             </TableCell>

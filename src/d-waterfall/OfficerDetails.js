@@ -22,7 +22,7 @@ export const OfficerDetails = ({ badgeId }) => {
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell>Badge ID</TableCell>
+            <TableCell component="th">Badge ID</TableCell>
             <TableCell>{badgeId}</TableCell>
           </TableRow>
           <TableRow>

@@ -1,5 +1,12 @@
+const caches = []
+
+export const clearCache = () => {
+  caches.forEach(map => map.clear())
+}
+
 export const cachedFetcher = (fetcher) => {
   const cache = new Map()
+  caches.push(cache)
   return id => {
     let entry = cache.get(id)
     if (!entry) {
