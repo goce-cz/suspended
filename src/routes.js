@@ -86,7 +86,7 @@ router.usePlugin(
 )
 
 router.subscribe(({route,previousRoute}) => {
-  if(route.name !== previousRoute?.name) {
+  if(route.name !== (previousRoute && previousRoute.name)) {
     clearCache()
   }
 })
