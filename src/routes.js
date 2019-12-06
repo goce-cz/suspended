@@ -1,6 +1,7 @@
 import createRouter from 'router5'
 import browserPlugin from 'router5-plugin-browser'
 
+import { clearCache } from './common/cached-fetcher'
 import { onRouteChange as onRouteChangeFetchFirst } from './f-fetch-first/officer-details-cache'
 import { onRouteChange as onRouteChangeTiming } from './g-timing/officer-details-cache'
 import { OfficerManagement as Single } from './a-single/OfficerManagement'
@@ -10,9 +11,8 @@ import { OfficerManagement as Waterfall } from './d-waterfall/OfficerManagement'
 import { OfficerManagement as WaterfallSuspense } from './e-waterfall-suspense/OfficerManagement'
 import { OfficerManagement as FetchFirst } from './f-fetch-first/OfficerManagement'
 import { OfficerManagement as Timing } from './g-timing/OfficerManagement'
-import { OfficerManagement as Transition } from './h-transition/OfficerManagement'
-import { OfficerManagement as Resource } from './i-resource/OfficerManagement'
-import { clearCache } from './common/cached-fetcher'
+import { OfficerManagement as Resource } from './h-resource/OfficerManagement'
+import { OfficerManagement as Transition } from './i-transition/OfficerManagement'
 
 export const ROOT = 'root'
 
@@ -53,14 +53,14 @@ export const routes = [
     component: Timing
   },
   {
-    name: 'transition',
-    path: '/transition?:badgeId',
-    component: Transition
-  },
-  {
     name: 'resource',
     path: '/resource?:badgeId',
     component: Resource
+  },
+  {
+    name: 'transition',
+    path: '/transition?:badgeId',
+    component: Transition
   }
 ]
 

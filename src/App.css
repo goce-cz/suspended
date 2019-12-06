@@ -25,11 +25,14 @@
     cursor: pointer;
 }
 
-.throbber {
+.throbberBackdrop {
     position: absolute;
-    left: 50vw;
-    top: 50vh;
-    transform: translate(-50%, -50%);
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background: #282c3455;
+    z-index: 5000;
 }
 
 #root {

@@ -1,5 +1,6 @@
 import { delay } from './utils'
 import moment from 'moment'
+import { getSlowMoRatio } from './slowmo'
 
 export const db = {
   officers: [
@@ -61,18 +62,18 @@ export const db = {
   ]
 }
 
-const logTiming = message => console.log(moment().format('mm:ss,SSS'), message)
+const logTiming = message => console.log(moment().format('mm:ss,SSS'), message, new Error().stack)
 
 export const listOfficers = async () => {
   logTiming('<listOfficers>')
-  await delay(3000)
+  await delay(3000 * getSlowMoRatio())
   logTiming('</listOfficers>')
   return db.officers.map(({ badgeId, surname }) => ({ badgeId, surname }))
 }
 
 export const getOfficer = async (badgeId) => {
   logTiming('<getOfficer>')
-  await delay(2000)
+  await delay(2000 * getSlowMoRatio())
   logTiming('</getOfficer>')
   const officer = db.officers.find(person => person.badgeId === badgeId)
   if (officer) {
@@ -84,7 +85,7 @@ export const getOfficer = async (badgeId) => {
 
 export const listKills = async badgeId => {
   logTiming('<listKills>')
-  await delay(1000)
+  await delay(1000 * getSlowMoRatio())
   logTiming('</listKills>')
   return db.kills.filter(kill => kill.badgeId === badgeId)
 }

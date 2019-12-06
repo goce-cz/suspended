@@ -3,6 +3,7 @@ import { RouterProvider, useRoute } from 'react-router5'
 
 import { ROOT, routes } from './routes'
 import { AppBar, Tabs, Tab, FormControlLabel, Box, Switch, Toolbar, Typography } from '@material-ui/core'
+import { useSlowMo } from './common/slowmo'
 
 export const Root = () => {
   const { route, router } = useRoute()
@@ -14,6 +15,11 @@ export const Root = () => {
   const activeRouteSettings = routes[activeRouteIndex]
 
   const Component = activeRouteSettings && activeRouteSettings.component
+
+  const [ratio, setRatio] = useSlowMo()
+  const isSlowMo = ratio > 1
+
+  const handleSlowMoToggle = (event, newIsSlowMo) => setRatio(newIsSlowMo ? 3 : 1)
 
   const handleTabChange = (event, index) => {
     const { name } = routes[index]
@@ -41,6 +47,16 @@ export const Root = () => {
           >
             <Typography variant='h5'>React Suspense</Typography>
             <Box flex={1}/>
+            <FormControlLabel
+              labelPlacement="start"
+              control={
+                <Switch
+                  checked={isSlowMo}
+                  onChange={handleSlowMoToggle}
+                />
+              }
+              label="Slow motion"
+            />
             <FormControlLabel
               labelPlacement="start"
               control={
