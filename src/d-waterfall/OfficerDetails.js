@@ -1,4 +1,5 @@
 import React from 'react'
+import { Paper, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
 import { cachedFetcher } from '../common/cached-fetcher'
 import { getOfficer, listKills } from '../common/api'
@@ -17,31 +18,33 @@ export const OfficerDetails = ({ badgeId }) => {
   const kills = cachedListKills(badgeId)
 
   return (
-    <table>
-      <tbody>
-      <tr>
-        <th>Badge ID</th>
-        <td>{badgeId}</td>
-      </tr>
-      <tr>
-        <th>Rank</th>
-        <td>{rank}</td>
-      </tr>
-      <tr>
-        <th>Name</th>
-        <td>{firstName} {surname}</td>
-      </tr>
-      <tr>
-        <th>Status</th>
-        <td>{status}</td>
-      </tr>
-      <tr>
-        <th>Kills</th>
-        <td>
+    <Paper>
+<Table>
+      <TableBody>
+      <TableRow>
+        <TableCell>Badge ID</TableCell>
+        <TableCell>{badgeId}</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell component="th">Rank</TableCell>
+        <TableCell>{rank}</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell component="th">Name</TableCell>
+        <TableCell>{firstName} {surname}</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell component="th">Status</TableCell>
+        <TableCell>{status}</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell component="th">Kills</TableCell>
+        <TableCell>
           {kills.map(({ villain }) => <div key={villain}>{villain}</div>)}
-        </td>
-      </tr>
-      </tbody>
-    </table>
+        </TableCell>
+      </TableRow>
+      </TableBody>
+    </Table>
+</Paper>
   )
 }

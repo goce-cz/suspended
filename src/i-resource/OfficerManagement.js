@@ -1,9 +1,10 @@
 import React, { Suspense, SuspenseList, useState } from 'react'
 
-import { OfficerList } from '../i-resource/OfficerList'
-import { OfficerDetails } from '../i-resource/OfficerDetails'
+import { OfficerList } from './OfficerList'
+import { OfficerDetails } from './OfficerDetails'
 import { createResource } from '../common/resource'
 import { getOfficer, listOfficers } from '../common/api'
+import { InlineThrobber } from '../common/InlineThrobber'
 
 export const OfficerManagement = () => {
   const [officerListResource] = useState(() => createResource(listOfficers()))
@@ -13,10 +14,10 @@ export const OfficerManagement = () => {
 
   return (
     <SuspenseList revealOrder="forwards">
-      <Suspense fallback={<div>Loading list...</div>}>
+      <Suspense fallback={<InlineThrobber>Loading list...</InlineThrobber>}>
         <OfficerList resource={officerListResource} onOfficerClick={handleOfficerClick}/>
       </Suspense>
-      <Suspense fallback={<div>Loading details...</div>}>
+      <Suspense fallback={<InlineThrobber>Loading details...</InlineThrobber>}>
         {
           officerResource &&
           <OfficerDetails resource={officerResource}/>

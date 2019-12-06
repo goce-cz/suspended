@@ -1,26 +1,30 @@
 import React from 'react'
+import { Paper, Table, TableBody, TableRow, TableCell, TableHead } from '@material-ui/core'
+
 import { cachedListOfficers } from './officer-details-cache'
 
 export const OfficerList = ({ onOfficerClick }) => {
   const officers = cachedListOfficers()
   return (
-    <table>
-      <thead>
-      <tr>
-        <th>Badge ID</th>
-        <th>Surname</th>
-      </tr>
-      </thead>
-      <tbody>
+    <Paper>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Badge ID</TableCell>
+            <TableCell>Surname</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
       {
         officers.map(({ badgeId, surname }) => (
-          <tr onClick={() => onOfficerClick(badgeId)} className='clickableRow' key={badgeId}>
-            <td>{badgeId}</td>
-            <td>{surname}</td>
-          </tr>
+          <TableRow onClick={() => onOfficerClick(badgeId)} className='clickableRow' key={badgeId}>
+            <TableCell>{badgeId}</TableCell>
+            <TableCell>{surname}</TableCell>
+          </TableRow>
         ))
       }
-      </tbody>
-    </table>
+        </TableBody>
+      </Table>
+    </Paper>
   )
 }

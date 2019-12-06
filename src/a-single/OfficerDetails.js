@@ -2,6 +2,7 @@ import React from 'react'
 
 import { cachedFetcher } from '../common/cached-fetcher'
 import { getOfficer } from '../common/api'
+import { Paper, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
 const cachedGetOfficer = cachedFetcher(getOfficer)
 
@@ -14,25 +15,27 @@ export const OfficerDetails = ({ badgeId }) => {
   } = cachedGetOfficer(badgeId)
 
   return (
-    <table>
-      <tbody>
-        <tr>
-          <th>Badge ID</th>
-          <td>{badgeId}</td>
-        </tr>
-        <tr>
-          <th>Rank</th>
-          <td>{rank}</td>
-        </tr>
-        <tr>
-          <th>Name</th>
-          <td>{firstName} {surname}</td>
-        </tr>
-        <tr>
-          <th>Status</th>
-          <td>{status}</td>
-        </tr>
-      </tbody>
-    </table>
+    <Paper>
+<Table>
+      <TableBody>
+        <TableRow>
+          <TableCell>Badge ID</TableCell>
+          <TableCell>{badgeId}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell component="th">Rank</TableCell>
+          <TableCell>{rank}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell component="th">Name</TableCell>
+          <TableCell>{firstName} {surname}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell component="th">Status</TableCell>
+          <TableCell>{status}</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+</Paper>
   )
 }

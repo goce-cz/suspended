@@ -8,7 +8,10 @@ export const useBadgeId = () => {
   const { badgeId } = route.params
 
   const handleChange = useCallback(
-    newBadgeId => router.navigate(router.getState().name, { badgeId: newBadgeId }),
+    newBadgeId => {
+      const currentRoute = router.getState()
+      router.navigate(currentRoute.name, {...currentRoute.params, badgeId: newBadgeId })
+    },
     [router]
   )
 

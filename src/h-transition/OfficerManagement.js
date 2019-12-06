@@ -4,12 +4,13 @@ import { useBadgeId } from '../common/utils'
 import { OfficerList } from '../g-timing/OfficerList'
 import { OfficerDetails } from '../g-timing/OfficerDetails'
 import { cachedGetOfficer, cachedListKills } from '../g-timing/officer-details-cache'
-import { Throbber } from '../common/Throbber'
+import { FullscreenThrobber } from '../common/FullscreenThrobber'
+import { InlineThrobber } from '../common/InlineThrobber'
 
 export const OfficerManagementInner = () => {
   const [badgeId, setBadgeId] = useBadgeId()
   const [startTransition, isPending] = useTransition({
-    timeoutMs: 1000
+    timeoutMs: 10000
   })
 
   const handleOfficerClick = badgeId => {
@@ -23,16 +24,16 @@ export const OfficerManagementInner = () => {
 
   return (
     <SuspenseList revealOrder='forwards'>
-      <Suspense fallback={<div>Loading list...</div>}>
+      <Suspense fallback={<InlineThrobber>Loading list...</InlineThrobber>}>
         <OfficerList onOfficerClick={handleOfficerClick}/>
       </Suspense>
-      <Suspense fallback={<div>Loading details...</div>}>
+      <Suspense fallback={<InlineThrobber>Loading details...</InlineThrobber>}>
         {
           badgeId &&
           <OfficerDetails badgeId={badgeId}/>
         }
       </Suspense>
-      {isPending && <Throbber delay={500}/>}
+      {isPending && <FullscreenThrobber delay={500}/>}
     </SuspenseList>
   )
 }

@@ -3,15 +3,16 @@ import React, { Suspense, SuspenseList } from 'react'
 import { useBadgeId } from '../common/utils'
 import { OfficerList } from '../g-timing/OfficerList'
 import { OfficerDetails } from '../g-timing/OfficerDetails'
+import { InlineThrobber } from '../common/InlineThrobber'
 
 export const OfficerManagement = () => {
   const [badgeId, setBadgeId] = useBadgeId()
   return (
     <SuspenseList revealOrder="forwards">
-      <Suspense fallback={<div>Loading list...</div>}>
+      <Suspense fallback={<InlineThrobber>Loading list...</InlineThrobber>}>
         <OfficerList onOfficerClick={setBadgeId}/>
       </Suspense>
-      <Suspense fallback={<div>Loading details...</div>}>
+      <Suspense fallback={<InlineThrobber>Loading details...</InlineThrobber>}>
         {
           badgeId &&
           <OfficerDetails badgeId={badgeId}/>

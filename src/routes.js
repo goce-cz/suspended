@@ -13,6 +13,8 @@ import { OfficerManagement as Timing } from './g-timing/OfficerManagement'
 import { OfficerManagement as Transition } from './h-transition/OfficerManagement'
 import { OfficerManagement as Resource } from './i-resource/OfficerManagement'
 
+export const ROOT = 'root'
+
 export const routes = [
   {
     name: 'single',
@@ -61,7 +63,16 @@ export const routes = [
   }
 ]
 
-export const router = createRouter(routes, { defaultRoute: 'single' })
+export const router = createRouter(
+  [
+    {
+      name: ROOT,
+      path: '/:mode',
+      children: routes
+    }
+  ],
+  { defaultRoute: 'single' }
+)
 
 router.usePlugin(
   browserPlugin()

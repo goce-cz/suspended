@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { CircularProgress } from '@material-ui/core'
 
-export const Throbber = ({ delay = 1000 }) => {
+export const FullscreenThrobber = ({ delay = 1000 }) => {
   const [visible, setVisible] = useState(false)
   useEffect(
     () => {

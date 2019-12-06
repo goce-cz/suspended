@@ -5,7 +5,11 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 
 const rootElement = document.getElementById('root')
-ReactDOM.createRoot(rootElement).render(<App />)
+if (window.location.toString().includes('concurrent')) {
+  ReactDOM.createRoot(rootElement).render(<App/>)
+} else {
+  ReactDOM.render(<App/>, rootElement)
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
