@@ -4,6 +4,7 @@ import browserPlugin from 'router5-plugin-browser'
 import { clearCache } from './common/cached-fetcher'
 import { onRouteChange as onRouteChangeFetchFirst } from './f-fetch-first/officer-details-cache'
 import { onRouteChange as onRouteChangeTiming } from './g-timing/officer-details-cache'
+import { OfficerManagement as Effects } from './0-effects/OfficerManagement'
 import { OfficerManagement as Single } from './a-single/OfficerManagement'
 import { OfficerManagement as Split } from './b-split/OfficerManagement'
 import { OfficerManagement as Error } from './c-error/OfficerManagement'
@@ -17,6 +18,11 @@ import { OfficerManagement as Transition } from './i-transition/OfficerManagemen
 export const ROOT = 'root'
 
 export const routes = [
+  {
+    name: 'effects',
+    path: '/effects?:badgeId',
+    component: Effects
+  },
   {
     name: 'single',
     path: '/single?:badgeId',
