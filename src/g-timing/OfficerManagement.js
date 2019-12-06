@@ -1,9 +1,9 @@
 import React, { Suspense, SuspenseList } from 'react'
 
-import { useBadgeId } from '../common/utils'
+import { useBadgeId } from '../z-common/utils'
 import { OfficerList } from '../g-timing/OfficerList'
 import { OfficerDetails } from '../g-timing/OfficerDetails'
-import { InlineThrobber } from '../common/InlineThrobber'
+import { InlineThrobber } from '../z-common/InlineThrobber'
 
 export const OfficerManagement = () => {
   const [badgeId, setBadgeId] = useBadgeId()

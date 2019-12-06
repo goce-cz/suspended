@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react'
 
-import { useBadgeId } from '../common/utils'
+import { useBadgeId } from '../z-common/utils'
 import { OfficerList } from '../a-single/OfficerList'
 import { OfficerDetails } from './OfficerDetails'
-import { InlineThrobber } from '../common/InlineThrobber'
+import { InlineThrobber } from '../z-common/InlineThrobber'
 
 export const OfficerManagement = () => {
   const [badgeId, setBadgeId] = useBadgeId()

@@ -2,10 +2,10 @@ import React, { Suspense, SuspenseList, useState, useTransition } from 'react'
 
 import { OfficerList } from '../h-resource/OfficerList'
 import { OfficerDetails } from '../h-resource/OfficerDetails'
-import { createResource } from '../common/resource'
-import { getOfficer, listOfficers } from '../common/api'
-import { InlineThrobber } from '../common/InlineThrobber'
-import { useSlowMo } from '../common/slowmo'
+import { createResource } from '../z-common/resource'
+import { getOfficer, listOfficers } from '../z-common/api'
+import { InlineThrobber } from '../z-common/InlineThrobber'
+import { useSlowMo } from '../z-common/slowmo'
 
 export const OfficerManagement = () => {
   const [slowMoRatio] = useSlowMo()

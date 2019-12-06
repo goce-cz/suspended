@@ -3,7 +3,7 @@ import { RouterProvider, useRoute } from 'react-router5'
 
 import { ROOT, routes } from './routes'
 import { AppBar, Tabs, Tab, FormControlLabel, Box, Switch, Toolbar, Typography } from '@material-ui/core'
-import { useSlowMo } from './common/slowmo'
+import { useSlowMo } from './z-common/slowmo'
 
 export const Root = () => {
   const { route, router } = useRoute()

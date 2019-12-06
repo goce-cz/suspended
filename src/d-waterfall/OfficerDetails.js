@@ -1,8 +1,8 @@
 import React from 'react'
 import { Paper, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
-import { cachedFetcher } from '../common/cached-fetcher'
-import { getOfficer, listKills } from '../common/api'
+import { cachedFetcher } from '../z-common/cached-fetcher'
+import { getOfficer, listKills } from '../z-common/api'
 
 const cachedGetOfficer = cachedFetcher(getOfficer)
 const cachedListKills = cachedFetcher(listKills)

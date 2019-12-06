@@ -3,7 +3,7 @@ import { Paper, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
 import { KillList } from './KillList'
 import { cachedGetOfficer } from './officer-details-cache'
-import { InlineThrobber } from '../common/InlineThrobber'
+import { InlineThrobber } from '../z-common/InlineThrobber'
 
 export const OfficerDetails = ({ badgeId }) => {
   const {

@@ -1,6 +1,6 @@
 import React from 'react'
-import { cachedFetcher } from '../common/cached-fetcher'
-import { listKills } from '../common/api'
+import { cachedFetcher } from '../z-common/cached-fetcher'
+import { listKills } from '../z-common/api'
 
 const cachedListKills = cachedFetcher(listKills)
 

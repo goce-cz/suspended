@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-import { getOfficer } from '../common/api'
+import { getOfficer } from '../z-common/api'
 import { Paper, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
-import { InlineThrobber } from '../common/InlineThrobber'
+import { InlineThrobber } from '../z-common/InlineThrobber'
 
 export const OfficerDetails = ({ badgeId }) => {
   const [officer, setOfficer] = useState()

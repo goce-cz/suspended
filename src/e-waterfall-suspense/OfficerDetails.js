@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react'
 import { Paper, Table, TableBody, TableRow, TableCell } from '@material-ui/core'
 
-import { cachedFetcher } from '../common/cached-fetcher'
-import { getOfficer } from '../common/api'
+import { cachedFetcher } from '../z-common/cached-fetcher'
+import { getOfficer } from '../z-common/api'
 import { KillList } from './KillList'
-import { InlineThrobber } from '../common/InlineThrobber'
+import { InlineThrobber } from '../z-common/InlineThrobber'
 
 const cachedGetOfficer = cachedFetcher(getOfficer)
 

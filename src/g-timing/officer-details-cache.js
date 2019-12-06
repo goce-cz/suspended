@@ -1,5 +1,5 @@
-import { getOfficer, listKills, listOfficers } from '../common/api'
-import { preloadingCachedFetcher } from '../common/preloading-cached-fetcher'
+import { getOfficer, listKills, listOfficers } from '../z-common/api'
+import { preloadingCachedFetcher } from '../z-common/preloading-cached-fetcher'
 
 export const cachedListOfficers = preloadingCachedFetcher(listOfficers)
 export const cachedGetOfficer = preloadingCachedFetcher(getOfficer)

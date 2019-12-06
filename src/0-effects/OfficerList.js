@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Paper, Table, TableBody, TableRow, TableCell, TableHead } from '@material-ui/core'
 
-import { listOfficers } from '../common/api'
-import { InlineThrobber } from '../common/InlineThrobber'
+import { listOfficers } from '../z-common/api'
+import { InlineThrobber } from '../z-common/InlineThrobber'
 
 export const OfficerList = ({ onOfficerClick }) => {
   const [officers, setOfficers] = useState()
