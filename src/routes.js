@@ -78,7 +78,12 @@ export const router = createRouter(
       children: routes
     }
   ],
-  { defaultRoute: 'single' }
+  {
+    defaultRoute: `${ROOT}.effects`,
+    defaultParams: {
+      mode: 'blocking'
+    }
+  }
 )
 
 router.usePlugin(
