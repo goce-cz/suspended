@@ -7,7 +7,7 @@
     "lodash": "^4.17.19",
     "memoize-one": "^5.1.1",
     "moment": "^2.24.0",
-    "react": "0.0.0-experimental-b53ea6ca0",
+    "react": "0.14.0",
     "react-dom": "0.0.0-experimental-b53ea6ca0",
     "react-router5": "^7.1.0",
     "react-scripts": "^3.3.0",
