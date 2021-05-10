@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.7.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "memoize-one": "^5.1.1",
     "moment": "^2.24.0",
     "react": "0.0.0-experimental-b53ea6ca0",
